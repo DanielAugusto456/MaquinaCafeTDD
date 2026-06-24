@@ -1,0 +1,86 @@
+using NUnit.Framework;
+
+[TestFixture]
+public class MaquinaCafeTests
+{
+    private MaquinaCafe _maquina = null!;
+
+    [SetUp]
+    public void Inicializar() => _maquina = new MaquinaCafe();
+
+    // TC-01: Seleccionar vaso pequeño dispensa 3 oz
+    [Test]
+    public void SeleccionarVaso_Pequeno_Dispensa3Oz()
+    {
+        var resultado = _maquina.SeleccionarVaso("Pequeno");
+        Assert.AreEqual(3, resultado.Onzas);
+    }
+
+    // TC-02: Seleccionar vaso mediano dispensa 5 oz
+    [Test]
+    public void SeleccionarVaso_Mediano_Dispensa5Oz()
+    {
+        var resultado = _maquina.SeleccionarVaso("Mediano");
+        Assert.AreEqual(5, resultado.Onzas);
+    }
+
+    // TC-03: Seleccionar vaso grande dispensa 7 oz
+    [Test]
+    public void SeleccionarVaso_Grande_Dispensa7Oz()
+    {
+        var resultado = _maquina.SeleccionarVaso("Grande");
+        Assert.AreEqual(7, resultado.Onzas);
+    }
+
+    // TC-04: Seleccionar azucar agrega cucharadas al vaso
+    [Test]
+    public void AgregarAzucar_AgregaCucharadas()
+    {
+        var vaso = _maquina.SeleccionarVaso("Mediano");
+        _maquina.AgregarAzucar(vaso, 2);
+        Assert.AreEqual(2, vaso.Azucar);
+    }
+
+    // TC-05: Recoger vaso retorna el vaso preparado listo
+    [Test]
+    public void RecogerVaso_RetornaVasoListo()
+    {
+        var vaso = _maquina.SeleccionarVaso("Grande");
+        _maquina.AgregarAzucar(vaso, 1);
+        var vasoFinal = _maquina.RecogerVaso(vaso);
+        Assert.IsTrue(vasoFinal.Listo);
+    }
+
+    // TC-06: Sin vasos disponibles muestra mensaje
+    [Test]
+    public void SeleccionarVaso_SinStock_RetornaMensaje()
+    {
+        for (int i = 0; i < _maquina.StockVasos; i++)
+            _maquina.SeleccionarVaso("Pequeno");
+
+        var mensaje = _maquina.ObtenerMensaje();
+        Assert.AreEqual("No hay vasos disponibles", mensaje);
+    }
+
+    // TC-07: Sin cafe disponible muestra mensaje
+    [Test]
+    public void SeleccionarVaso_SinCafe_RetornaMensaje()
+    {
+        for (int i = 0; i < _maquina.StockCafe; i++)
+            _maquina.SeleccionarVaso("Grande");
+
+        var mensaje = _maquina.ObtenerMensaje();
+        Assert.AreEqual("No hay café disponible", mensaje);
+    }
+
+    // TC-08: Sin azucar disponible muestra mensaje
+    [Test]
+    public void AgregarAzucar_SinStock_RetornaMensaje()
+    {
+        var vaso = _maquina.SeleccionarVaso("Pequeno");
+        _maquina.AgregarAzucar(vaso, _maquina.StockAzucar + 1);
+
+        var mensaje = _maquina.ObtenerMensaje();
+        Assert.AreEqual("No hay azúcar disponible", mensaje);
+    }
+}
