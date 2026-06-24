@@ -10,9 +10,9 @@ TDD es una metodología donde el programador escribe la prueba **antes** de escr
 
 | Fase | Descripción |
 |------|-------------|
-| 🔴 RED | Escribir la prueba que **falla** (el código aún no existe) |
-| 🟢 GREEN | Escribir el código **mínimo** para que la prueba pase |
-| 🔵 REFACTOR | Mejorar el diseño sin romper las pruebas |
+| RED | Escribir la prueba que **falla** (el código aún no existe) |
+| GREEN | Escribir el código **mínimo** para que la prueba pase |
+| REFACTOR | Mejorar el diseño sin romper las pruebas |
 
 ## Estructura del proyecto
 
@@ -49,6 +49,9 @@ O en Visual Studio: **Test → Run All Tests** (`Ctrl+R, A`)
 
 ## Historial de commits
 
-- `feat(red): agregar 8 casos de prueba TDD - fase RED`
-- `feat(green): implementación mínima para pasar los tests - fase GREEN`
-- `refactor: aplicar record Bebida y encapsulación limpia - fase REFACTOR`
+- ` agregar 8 casos de prueba TDD - fase RED`
+- ` implementación mínima para pasar los tests - fase GREEN`
+- `refactor: REFACTOR`
+
+## Repositorio de gitHub
+https://github.com/DanielAugusto456/MaquinaCafeTDD
