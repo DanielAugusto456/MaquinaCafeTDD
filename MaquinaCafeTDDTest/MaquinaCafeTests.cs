@@ -8,7 +8,7 @@ public class MaquinaCafeTests
     [SetUp]
     public void Inicializar() => _maquina = new MaquinaCafe();
 
-    // TC-01: Seleccionar vaso pequeño dispensa 3 oz
+    // TEST-01: Seleccionar vaso pequeño dispensa 3 oz
     [Test]
     public void SeleccionarVaso_Pequeno_Dispensa3Oz()
     {
@@ -16,7 +16,7 @@ public class MaquinaCafeTests
         Assert.AreEqual(3, resultado.Onzas);
     }
 
-    // TC-02: Seleccionar vaso mediano dispensa 5 oz
+    // TEST-02: Seleccionar vaso mediano dispensa 5 oz
     [Test]
     public void SeleccionarVaso_Mediano_Dispensa5Oz()
     {
@@ -24,7 +24,7 @@ public class MaquinaCafeTests
         Assert.AreEqual(5, resultado.Onzas);
     }
 
-    // TC-03: Seleccionar vaso grande dispensa 7 oz
+    // TEST-03: Seleccionar vaso grande dispensa 7 oz
     [Test]
     public void SeleccionarVaso_Grande_Dispensa7Oz()
     {
@@ -32,7 +32,7 @@ public class MaquinaCafeTests
         Assert.AreEqual(7, resultado.Onzas);
     }
 
-    // TC-04: Seleccionar azucar agrega cucharadas al vaso
+    // TEST-04: Seleccionar azucar agrega cucharadas al vaso
     [Test]
     public void AgregarAzucar_AgregaCucharadas()
     {
@@ -41,7 +41,7 @@ public class MaquinaCafeTests
         Assert.AreEqual(2, vaso.Azucar);
     }
 
-    // TC-05: Recoger vaso retorna el vaso preparado listo
+    // TEST-05: Recoger vaso retorna el vaso preparado listo
     [Test]
     public void RecogerVaso_RetornaVasoListo()
     {
@@ -51,7 +51,7 @@ public class MaquinaCafeTests
         Assert.IsTrue(vasoFinal.Listo);
     }
 
-    // TC-06: Sin vasos disponibles muestra mensaje
+    // TEST-06: Sin vasos disponibles muestra mensaje
     [Test]
     public void SeleccionarVaso_SinStock_RetornaMensaje()
     {
@@ -65,7 +65,7 @@ public class MaquinaCafeTests
         Assert.AreEqual("No hay vasos disponibles", _maquina.ObtenerMensaje());
     }
 
-    // TC-07: Sin cafe disponible muestra mensaje
+    // TEST-07: Sin cafe disponible muestra mensaje
     [Test]
     public void SeleccionarVaso_SinCafe_RetornaMensaje()
     {
@@ -80,7 +80,7 @@ public class MaquinaCafeTests
         Assert.AreEqual("No hay café disponible", maquina.ObtenerMensaje());
     }
 
-    // TC-08: Sin azucar disponible muestra mensaje
+    // TEST-08: Sin azucar disponible muestra mensaje
     [Test]
     public void AgregarAzucar_SinStock_RetornaMensaje()
     {
